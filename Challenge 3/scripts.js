@@ -10,10 +10,20 @@ const divider = '----------------------------------'
 
 // Only change below this line
 
-const owed = parseInt('R' + leoBalance + sarahBalance)
-const leo = "{leoName} + {leoSurname} + \"Owed\" + \"R\" + {sarahBalance}"
-const sarah = "{leoName} + {surname} + \"Owed\" + \"R\" + {sarahBalance}"
-const total = "Total amount owed: "
-const result = leo + sarah + divider + divider + total + owed + divider
+// Calculate the total owed amount
+const owed = leoBalance + sarahBalance;
 
-console.log(result)
+// Format Leo's message
+const leoMessage = `${leoName} ${leoSurname} Owed: R ${Math.abs(leoBalance).toFixed(2)}`;
+
+// Format Sarah's message
+const sarahMessage = `${sarahName} ${sarahSurname} Owed: R ${Math.abs(sarahBalance).toFixed(2)}`;
+
+// Format the total owed message
+const totalOwedMessage = `Total amount owed: R ${Math.abs(owed).toFixed(2)}`;
+
+// Construct the final result
+const result = `\n${leoMessage}\n${sarahMessage}\n\n${divider}\n${totalOwedMessage}\n${divider}`;
+
+// Print the result
+console.log(result);
